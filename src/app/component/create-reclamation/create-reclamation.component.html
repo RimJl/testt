@@ -1,0 +1,15 @@
+<form [formGroup]="reclamationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="type">Type:</label>
+      <input type="text" id="type" formControlName="type" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" required></textarea>
+    </div>
+    <div>
+      <label for="adresse">Adresse:</label>
+      <input type="text" id="adresse" formControlName="adresse" required>
+    </div>
+    <button type="submit">Submit</button>
+</form>

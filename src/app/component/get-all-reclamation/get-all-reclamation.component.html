@@ -1,0 +1,16 @@
+<!-- reclamations.component.html -->
+
+<div>
+    <h2>List of Reclamations</h2>
+    <ul>
+      <li *ngFor="let reclamation of reclamations">
+        <h3>Numero: {{ reclamation.numero }}</h3>
+        <p>Type: {{ reclamation.type }}</p>
+        <p>Description: {{ reclamation.description }}</p>
+        <p>Adresse: {{ reclamation.adresse }}</p>
+      </li>
+    </ul>
+  </div>
+  
+
+  
