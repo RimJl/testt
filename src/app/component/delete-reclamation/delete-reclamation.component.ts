@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ReclamationService } from '../../service/reclamation.service';
+import { ReclamationService } from '../../service/reclamation.service'; // Replace with your actual reclamation service name
 
 @Component({
   selector: 'app-delete-reclamation',
@@ -9,22 +9,29 @@ import { ReclamationService } from '../../service/reclamation.service';
 })
 export class DeleteReclamationComponent implements OnInit {
 
-  id!: number;
+  numero: number | undefined;
 
-  constructor(private s: ReclamationService, private activated: ActivatedRoute, private router: Router) { }
+  constructor(
+    private activatedRoute: ActivatedRoute, // Updated for consistency
+    private router: Router,
+    private reclamationService: ReclamationService // Replace with your actual reclamation service name
+  ) { }
 
   ngOnInit(): void {
-    this.delete();
+    this.numero = Number(this.activatedRoute.snapshot.paramMap.get('numero')); // Updated for consistency
   }
 
-  delete(){
-    this.id = this.activated.snapshot.params['id'];
-    this.s.deleteReclamation(this.id).subscribe(
-      ()=>{
-        //alert('Reclamation deleted.');
-        this.router.navigate(['Reclamations']);
-      }
-    );
+  deleteReclamation() {
+    if (this.numero) {
+      this.reclamationService.deleteReclamation(this.numero)
+        .subscribe(response => {
+          // Handle successful deletion (e.g., navigate back to list, display success message)
+          this.router.navigate(['/reclamations']); // Replace with appropriate route
+          console.log('Reclamation deleted successfully!');
+        }, error => {
+          // Handle error (e.g., display error message)
+          console.error('Error deleting reclamation:', error);
+        });
+    }
   }
-
 }

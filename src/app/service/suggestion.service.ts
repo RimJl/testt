@@ -21,4 +21,12 @@ createSuggestion(suggestionData: Suggestion): Observable<any> {
     return this.httpClient.post<any>('http://localhost:4000/suggestions', suggestionData); 
 }
 
+updateSuggestion(numero: number, suggestionData: Suggestion): Observable<any> {
+  return this.httpClient.put<any>(`http://localhost:4000/suggestions/update/${numero}`, suggestionData);
+}
+
+deleteSuggestion(numero: number): Observable<any> {
+  return this.httpClient.delete<any>(`http://localhost:4000/suggestions/delete/${numero}`);
+}
+
 }

@@ -10,6 +10,7 @@ import { Reclamation } from '../../models/reclamation';
 })
 export class UpdateReclamationComponent implements OnInit {
 
+  
   reclamation: Reclamation = {} as Reclamation;
   numero: number | undefined;
 

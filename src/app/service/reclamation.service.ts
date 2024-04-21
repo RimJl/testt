@@ -20,11 +20,11 @@ export class ReclamationService {
     return this.httpClient.post<any>('http://localhost:4000/reclamations', reclamationData);
   }
   updateReclamation(numero: number, reclamationData: Reclamation): Observable<any> {
-    return this.httpClient.put<any>(`http://localhost:4000/reclamations/${numero}`, reclamationData);
+    return this.httpClient.put<any>(`http://localhost:4000/reclamations/update/${numero}`, reclamationData);
   }
   
   deleteReclamation(numero: number): Observable<any> {
-    return this.httpClient.delete<any>(`http://localhost:4000/reclamations/${numero}`);
+    return this.httpClient.delete<any>(`http://localhost:4000/reclamations/delete/${numero}`);
   }
   
 }

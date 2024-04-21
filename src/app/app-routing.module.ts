@@ -6,14 +6,23 @@ import { GetReclamationDetailsComponent } from './component/get-reclamation-deta
 import { CreateReclamationComponent } from './component/create-reclamation/create-reclamation.component';
 import { GetSuggestionDetailsComponent } from './component/get-suggestion-details/get-suggestion-details.component';
 import { CreateSuggestionComponent } from './component/create-suggestion/create-suggestion.component';
+import { UpdateReclamationComponent } from './component/update-reclamation/update-reclamation.component';
+import { DeleteReclamationComponent } from './component/delete-reclamation/delete-reclamation.component';
+import { UpdateSuggestionComponent } from './component/update-suggestion/update-suggestion.component';
+import { DeleteSuggestionComponent } from './component/delete-suggestion/delete-suggestion.component';
 
 const routes: Routes = [
+  { path: 'suggestions/update/:numero', component: UpdateSuggestionComponent},
+  { path: 'reclamations/delete/:numero', component: DeleteReclamationComponent},
+  { path: 'reclamations/update/:numero', component: UpdateReclamationComponent},
+  { path: 'suggestions', component:GetAllSuggestionComponent},
+  { path: 'reclamations', component:GetAllReclamationComponent},
   { path: 'suggestions/create', component: CreateSuggestionComponent },
   { path: 'reclamations/create', component: CreateReclamationComponent },
-  { path: 'reclamations', component:GetAllReclamationComponent},
-  { path: 'reclamations/:numero', component: GetReclamationDetailsComponent },
-  { path: 'suggestions', component:GetAllSuggestionComponent},
-  { path: 'suggestions/:numero', component:GetSuggestionDetailsComponent},
+  { path: 'reclamations/details/:numero', component: GetReclamationDetailsComponent },
+  { path: 'suggestions/details/:numero', component:GetSuggestionDetailsComponent},
+  { path: 'suggestions/delete/:numero', component: DeleteSuggestionComponent},
+
 ];
 
 @NgModule({
